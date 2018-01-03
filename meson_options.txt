@@ -1,0 +1,50 @@
+# booleans
+option('enable-dsa',		   type : 'boolean', value : true,  description : 'Enable Digital Signature Algorithm')
+option('enable-ecdsa',		   type : 'boolean', value : true,  description : 'Enable Elliptic Curve Digital Signature Algorithm')
+option('enable-ed25519',	   type : 'boolean', value : true,  description : 'Enable Edwards-curve Digital Signature Algorithm')
+option('enable-gost',		   type : 'boolean', value : true,  description : 'Enable GOST block cipher')
+option('enable-sha1',		   type : 'boolean', value : true,  description : 'Enable Secure Hash Algorithm 1')
+option('enable-sha2',		   type : 'boolean', value : true,  description : 'Enable Secure Hash Algorithm 2')
+
+option('enable-alloc-checks',	   type : 'boolean', value : false, description : 'Enable to memory allocation statistics (debug)')
+option('enable-alloc-lite',	   type : 'boolean', value : false, description : 'Enable lightweight alloc assertions (debug)')
+option('enable-alloc-nonregional', type : 'boolean', value : false, description : 'Enable nonregional allocs, slow but exposes regional allocations to other memory purifiers (debug)')
+option('enable-allsymbols',	   type : 'boolean', value : false, description : 'Export all symbols from libunbound and link binaries to it, smaller install size but libunbound export table is polluted by internal symbols')
+option('enable-cachedb',	   type : 'boolean', value : false, description : 'Enable cachedb module that can use external cache storage')
+option('enable-dnscrypt',	   type : 'boolean', value : false, description : 'Enable dnscrypt support (requires libsodium)')
+option('enable-dnstap',		   type : 'boolean', value : false, description : 'Enable dnstap support (requires fstrm, protobuf-c)')
+option('enable-event-api',	   type : 'boolean', value : false, description : 'Enable (experimental) pluggable event base libunbound API installed to unbound-event.h')
+option('enable-ipsecmod',	   type : 'boolean', value : false, description : 'Enable ipsecmod module that facilitates opportunistic IPsec')
+option('enable-lock-checks',	   type : 'boolean', value : false, description : 'Enable to check lock and unlock calls (debug)')
+option('enable-subnet',		   type : 'boolean', value : false, description : 'Enable client subnet')
+option('enable-systemd',	   type : 'boolean', value : false, description : 'Enable systemd socket activation')
+option('enable-tfo-client',	   type : 'boolean', value : false, description : 'Enable TCP Fast Open for client mode')
+option('enable-tfo-server',	   type : 'boolean', value : false, description : 'Enable TCP Fast Open for server mode')
+
+option('enable-commands',	   type : 'boolean', value : true,  description : 'If disabled build only libunbound')
+option('with-pic',		   type : 'boolean', value : true,  description : 'Enable position-independent code')
+option('with-pthreads',		   type : 'boolean', value : true,  description : 'Enable threads')
+option('with-pythonmodule',	   type : 'boolean', value : false, description : 'Enable python swig interface module')
+option('with-pyunbound',	   type : 'boolean', value : false, description : 'Enable libunbound python bindings')
+
+# multichoise
+option('library-format',	   type : 'combo', choices : ['shared', 'static', 'both'], value : 'shared', description : 'The libunbound format')
+option('crypto',		   type : 'combo', choices : ['openssl', 'nettle', 'nss', 'none'], value : 'openssl', description : 'Crypto library to be used')
+
+# libraries
+option('enable-libevent',	   type : 'boolean', value : true,  description : 'Use libevent')
+option('enable-libexpat',	   type : 'boolean', value : true,  description : 'Use libexpat')
+option('enable-libfstrm',	   type : 'boolean', value : true,  description : 'Use libfstrm')
+option('enable-libsodium',	   type : 'boolean', value : false, description : 'Use libsodium')
+option('enable-protobuf-c',	   type : 'boolean', value : true,  description : 'Use libprotobuf-c')
+
+# paths
+option('with-chroot-dir',	   type : 'string', value : 'etc/unbound',			description : 'Runtime chroot directory')
+option('with-conf-file',	   type : 'string', value : 'etc/unbound/unbound.conf',		description : 'Unbound configuration path')
+option('with-pidfile',		   type : 'string', value : 'var/run/unbound/unbound.pid',	description : 'Unbound pid file path')
+option('with-dnstap-socket-path',  type : 'string', value : '',					description : 'The dnstap socket path')
+option('with-rootcert-file',	   type : 'string', value : 'var/run/unbound/icannbundle.pem',	description : 'Unbound root certificate file path')
+option('with-rootkey-file',	   type : 'string', value : 'var/run/unbound/root.key',		description : 'Unbound root key file path')
+option('with-run-dir',		   type : 'string', value : 'var/run/unbound',			description : 'Unbound run data directory')
+option('with-username',		   type : 'string', value : 'unbound',				description : 'Default unbound runtime username')
+
